@@ -1,3 +1,12 @@
+import { ProductCartCard } from "@/components/ProductCartCard";
+
 export const CartContainer = () => {
-  return <h2>Carrinho</h2>;
+  return (
+    <ProductCartCard
+      price={29.99}
+      productQuantity={1}
+      subTotal={29.99}
+      title={"Homem Aranha"}
+    />
+  );
 };

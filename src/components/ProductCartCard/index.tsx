@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import * as Styled from "./styles";
 import { AddContainer } from "@/containers/Add";
@@ -35,7 +37,7 @@ export const ProductCartCard = (props: Props) => {
         handleDecrease={handleDecrease}
         quantity={productQuantity}
       />
-      
+
       <Styled.Total>{subTotal}</Styled.Total>
       <Styled.SubTotal>{subTotal}</Styled.SubTotal>
 

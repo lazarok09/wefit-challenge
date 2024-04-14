@@ -1,7 +1,11 @@
+"use client";
+
 import styled, { css } from "styled-components";
 
 export const Wrapper = styled.div`
-  ${({ theme }) => css``}
+  ${({ theme }) => css`
+    background: ${theme.colors.lightBackground};
+  `}
 `;
 export const Title = styled.h3`
   ${({ theme }) => css``}
