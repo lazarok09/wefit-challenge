@@ -2,43 +2,49 @@
 import Image from "next/image";
 import { CustomButton } from "../CustomButton";
 import * as Styled from "./styles";
-import { useAppDispatch } from "@/app/lib/hooks";
-import { addToCart } from "@/app/lib/features/counter/productsSlice";
+
 const CartIcon = "/icons/cart.svg";
 type Props = {
-  image: {
-    src: string;
-    alt: string;
-  };
-  title: string;
-  price: number;
   quantityAtCart: number;
   id: number;
-};
+  handleAddToTheCart: (movie: Movie) => void;
+  isActionButtonGreen: boolean;
+} & Movie;
+
 export const MovieCard = (props: Props) => {
-  const { image, price, id, quantityAtCart, title } = props;
+  const {
+    image,
+    price,
+    id,
+    quantityAtCart,
+    title,
+    handleAddToTheCart,
+    isActionButtonGreen,
+  } = props;
   const formatedPrice = new Intl.NumberFormat("pt-BR", {
     currency: "BRL",
     style: "currency",
   }).format(price);
-  const dispatch = useAppDispatch();
 
   return (
-    <Styled.Wrapper>
-      <Image height={147} width={188} src={image.src} alt={image.alt} />
+    <Styled.Wrapper isActionButtonGreen={isActionButtonGreen}>
+      <Image
+        height={147}
+        width={188}
+        src={image}
+        alt={`${title} - Assista ${title} em BlueRay`}
+      />
       <h3>{title}</h3>
       <p>{formatedPrice}</p>
 
       <CustomButton
         onClick={() =>
-          dispatch(
-            addToCart({
-              id,
-              title,
-              image: image.src,
-              price,
-            })
-          )
+          handleAddToTheCart({
+            id,
+            image,
+            price,
+            title,
+          })
         }
       >
         <span>

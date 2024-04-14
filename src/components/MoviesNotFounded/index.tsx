@@ -3,8 +3,11 @@ import * as Styled from "./styles";
 import { CustomButton } from "../CustomButton";
 
 const ERROR_LADY = "/icons/error-lady.svg";
-
-export const MoviesNotFounded = () => {
+type Props = {
+  label: string;
+  onLabelClick: () => void;
+};
+export const MoviesNotFounded = ({ label, onLabelClick }: Props) => {
   return (
     <Styled.Wrapper>
       <Styled.Content>
@@ -13,9 +16,9 @@ export const MoviesNotFounded = () => {
           height={264}
           width={178.63}
           src={ERROR_LADY}
-          alt="erro, filme não encontrado"
+          alt="erro: não encontrado"
         />
-        <CustomButton>Recarregar página</CustomButton>
+        <CustomButton onClick={onLabelClick}>{label}</CustomButton>
       </Styled.Content>
     </Styled.Wrapper>
   );

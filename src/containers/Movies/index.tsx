@@ -7,35 +7,56 @@ import { MoviesNotFounded } from "@/components/MoviesNotFounded";
 import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../app/lib/store";
+import { useAppDispatch } from "@/app/lib/hooks";
+import { addToCart } from "@/app/lib/features/counter/productsSlice";
 
 export const MoviesContainer = () => {
-  const { error, isLoading, data } = useGetMoviesQuery();
+  const { error, isLoading, data, refetch } = useGetMoviesQuery();
 
-  const quantityAtCart = useSelector(
-    (state: RootState) => state.products.products.length
+  const productsAtCart = useSelector(
+    (state: RootState) => state.products.products
   );
 
+  const dispatch = useAppDispatch();
   if (isLoading) {
     return <Loading />;
   }
   if (error) {
-    return <MoviesNotFounded />;
+    return (
+      <MoviesNotFounded
+        onLabelClick={() => refetch()}
+        label="Recarregar página"
+      />
+    );
   }
   return (
     <Fragment>
-      {data?.map((movie, index) => (
-        <MovieCard
-          id={movie.id}
-          image={{
-            alt: `${movie.title} - ${movie.title} em BlueRay`,
-            src: movie.image,
-          }}
-          price={movie.price}
-          quantityAtCart={quantityAtCart}
-          title={movie.title}
-          key={index}
-        />
-      ))}
+      {data?.map((movie, index) => {
+        const quantityAtCart = productsAtCart.filter(
+          (product) => product.id === movie.id
+        )?.length;
+        return (
+          <MovieCard
+            id={movie.id}
+            isActionButtonGreen={quantityAtCart >= 1}
+            image={movie.image}
+            handleAddToTheCart={() =>
+              dispatch(
+                addToCart({
+                  id: movie.id,
+                  title: movie.title,
+                  image: movie.image,
+                  price: movie.price,
+                })
+              )
+            }
+            price={movie.price}
+            quantityAtCart={quantityAtCart}
+            title={movie.title}
+            key={index}
+          />
+        );
+      })}
     </Fragment>
   );
 };

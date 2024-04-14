@@ -7,6 +7,7 @@ import { CustomButton } from "../CustomButton";
 const TRASH_ICON = "/icons/trash.svg";
 const DVD_ICON = "/icons/dvd.svg";
 
+
 type Props = {
   title: string;
   price: number;
@@ -25,6 +26,7 @@ export const ProductCartCard = (props: Props) => {
 
   const formattedPrice = formatPrice(price);
   const subTotalFormatted = formatPrice(subTotal);
+
 
   const handleAdd = () => {};
   const handleDecrease = () => {};

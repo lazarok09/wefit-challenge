@@ -1,9 +1,11 @@
 "use client";
 import styled, { css } from "styled-components";
 import { CustomButton } from "../CustomButton/styles";
-
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
+type Props = {
+  isActionButtonGreen: boolean;
+};
+export const Wrapper = styled.div<Props>`
+  ${({ theme, isActionButtonGreen }) => css`
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -22,7 +24,10 @@ export const Wrapper = styled.div`
       font-weight: 700;
       line-height: 16.34px;
       font-size: 0.8rem;
-
+      background: ${isActionButtonGreen
+        ? theme.colors.greenBackground
+        : theme.colors.lightBlue};
+        
       > span {
         height: 100%;
         display: flex;
