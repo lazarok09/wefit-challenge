@@ -8,16 +8,28 @@ export const HomeTemplate = () => {
     <Styled.Wrapper>
       <HeaderComponent />
 
-      <MovieCard
-        image={{
-          alt: "BlackWidow - Viúva Negra em BlueRay",
-          src: MockedImg,
-        }}
-        price={9.99}
-        quantityAtCart={0}
-        title="Viúva Negra"
-      />
-      <Loading />
+      <Styled.Content>
+        <Loading />
+
+        <MovieCard
+          image={{
+            alt: "BlackWidow - Viúva Negra em BlueRay",
+            src: MockedImg,
+          }}
+          price={9.99}
+          quantityAtCart={0}
+          title="Viúva Negra"
+        />
+        <MovieCard
+          image={{
+            alt: "BlackWidow - Viúva Negra em BlueRay",
+            src: MockedImg,
+          }}
+          price={9.99}
+          quantityAtCart={0}
+          title="Viúva Negra"
+        />
+      </Styled.Content>
     </Styled.Wrapper>
   );
 };

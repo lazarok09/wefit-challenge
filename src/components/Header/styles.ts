@@ -6,7 +6,9 @@ export const HeaderWrapper = styled.header`
   padding: 24px 16px;
   color: white;
   justify-content: space-between;
+  align-items: center;
 `;
+
 
 export const HeaderTitle = styled.div`
   ${() => css`
