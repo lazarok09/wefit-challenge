@@ -47,7 +47,6 @@ export const HeaderItems = styled.div`
     gap: 8px;
     flex-direction: row;
     align-items: center;
-    padding: 9.71px;
     & > p {
       font-size: 0.8rem;
       font-weight: 600;

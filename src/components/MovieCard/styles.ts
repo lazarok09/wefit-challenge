@@ -8,7 +8,6 @@ export const Wrapper = styled.div`
     flex-direction: column;
     gap: 8px;
     align-items: center;
-
     color: red;
     width: 100%;
     padding: 16px;
