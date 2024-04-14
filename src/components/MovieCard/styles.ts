@@ -8,10 +8,15 @@ export const Wrapper = styled.div`
     width: 100%;
     padding: 16px;
     max-width: 338.67px;
-    height: 324px;
+    height: auto;
+    max-height: 324px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+
     background: ${theme.colors.lightBackground};
-    
-    ${CustomButton} {
+    display ${CustomButton} {
       text-transform: uppercase;
       font-weight: 700;
       line-height: 16.34px;

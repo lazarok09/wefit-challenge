@@ -20,7 +20,7 @@ export const MovieCard = (props: Props) => {
 
   return (
     <Styled.Wrapper>
-      <Image height={250} width={250} src={image.src} alt={image.alt} />
+      <Image height={147} width={188} src={image.src} alt={image.alt} />
       <h3>{title}</h3>
       <p>{formatedPrice}</p>
 
