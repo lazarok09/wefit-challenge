@@ -8,11 +8,12 @@ export const Wrapper = styled.div`
     background: ${theme.colors.lightBackground};
     padding: 64px;
     border-radius: 4px;
-    
+
     ${CustomButton} {
       line-height: 16.34px;
       font-weight: 700;
       border-radius: 4px;
+      padding: 11px 8px;
     }
   `}
 `;
