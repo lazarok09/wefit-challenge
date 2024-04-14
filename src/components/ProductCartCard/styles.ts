@@ -1,6 +1,7 @@
 "use client";
 
 import styled, { css } from "styled-components";
+import { CustomButton } from "../CustomButton/styles";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -15,6 +16,7 @@ export const Wrapper = styled.div`
 export const HeadContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
+    gap: 16px;
   `}
 `;
 export const BodyContainer = styled.div`
@@ -29,19 +31,27 @@ export const FooterContainer = styled.div`
     display: flex;
     gap: 16px;
     flex-direction: column;
+    ${CustomButton} {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      padding: 11px 0px;
+    }
   `}
 `;
 
 export const ImageContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
-    object-fit: contain;
+    object-fit: cover;
 
-    width: 82px;
-    height: 64px;
-    img {
+    width: 64px;
+    height: 82px;
+
+    .custom-image {
       width: 100%;
       height: 100%;
+      min-width: 64px;
     }
   `}
 `;
@@ -106,7 +116,7 @@ export const Separator = styled.hr`
   `}
 `;
 
-export const TotalLabel = styled.span`
+export const SubTotalLabel = styled.span`
   ${({ theme }) => css`
     line-height: 16.34px;
     font-weight: 700;
@@ -115,11 +125,22 @@ export const TotalLabel = styled.span`
     color: ${theme.colors.lightGray};
   `}
 `;
+export const TotalLabel = styled.span`
+  ${({ theme }) => css`
+    line-height: 19.07px;
+
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: ${theme.colors.lightGray};
+  `}
+`;
 
 export const TotalContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: space-between;
+    align-items: center;
   `}
 `;
 

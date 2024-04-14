@@ -33,7 +33,13 @@ export const ProductCartCard = (props: Props) => {
     <Styled.Wrapper>
       <Styled.HeadContainer>
         <Styled.ImageContainer>
-          <Image alt="Homem aranha" src={DVD_ICON} layout="fill" />
+          <Image
+            src={DVD_ICON}
+            alt="Homem aranha"
+            layout="fill"
+            className="custom-image"
+            fill
+          />
         </Styled.ImageContainer>
 
         <Styled.BodyContainer>
@@ -57,7 +63,7 @@ export const ProductCartCard = (props: Props) => {
               quantity={productQuantity}
             />
             <Styled.SubTotalContainer>
-              <Styled.TotalLabel>Subtotal</Styled.TotalLabel>
+              <Styled.SubTotalLabel>Subtotal</Styled.SubTotalLabel>
               <Styled.SubTotal>{subTotalFormatted}</Styled.SubTotal>
             </Styled.SubTotalContainer>
           </Styled.AcionsContainer>

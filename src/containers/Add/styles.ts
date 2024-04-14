@@ -6,8 +6,8 @@ import styled, { css } from "styled-components";
 export const AddContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
-    gap: 2px;
     align-items: center;
+    gap: 11px;
     justify-content: center;
 
     & > span {
@@ -20,8 +20,8 @@ export const AddContainer = styled.div`
     ${CustomButton} {
       background: transparent;
       border: none;
-      margin: none;
-      padding: none;
+      margin: 0;
+      padding: 0;
     }
   `}
 `;
