@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from "./lib/registry";
 import StyledLayout from "./lib/styled";
+import ReduxProviderRegistry from "./StoreProvider";
 
 const OpenSans = Open_Sans({
   weight: ["400", "700"],
@@ -23,12 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={OpenSans.className}>
-        <StyledLayout>
-          <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
-        </StyledLayout>
-      </body>
-    </html>
+    <ReduxProviderRegistry>
+      <html lang="en">
+        <body className={OpenSans.className}>
+          <StyledLayout>
+            <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+          </StyledLayout>
+        </body>
+      </html>
+    </ReduxProviderRegistry>
   );
 }

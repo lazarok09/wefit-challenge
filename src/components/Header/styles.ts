@@ -9,18 +9,13 @@ export const HeaderWrapper = styled.header`
   align-items: center;
 `;
 
-
-export const HeaderTitle = styled.div`
+export const HeaderTitle = styled.h2`
   ${() => css`
-    display: flex;
-    justify-content: center;
     width: 100%;
-
-    > h2 {
-      font-size: 1.6rem;
-      line-height: 27.24px;
-      font-weight: 700;
-    }
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 27.24px;
+    font-weight: 700;
   `}
 `;
 

@@ -3,14 +3,17 @@ import * as Styled from "./styles";
 import { Loading } from "@/components/Loading";
 import { HeaderComponent } from "@/components/Header";
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
+import { TestRedux } from "./add";
 const MockedImg = "/icons/dvd.svg";
+
 export const HomeTemplate = () => {
   return (
     <Styled.Wrapper>
       <HeaderComponent />
       <Styled.Content>
-      <MoviesNotFounded />
-        <Loading />
+        <TestRedux />
+        {/* <MoviesNotFounded /> */}
+        {/* <Loading /> */}
 
         {/* <MovieCard
           image={{
