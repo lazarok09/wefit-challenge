@@ -4,6 +4,7 @@ import { Loading } from "@/components/Loading";
 import { HeaderComponent } from "@/components/Header";
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
 import { TestRedux } from "./add";
+import { MoviesContainer } from "@/containers/Movies";
 const MockedImg = "/icons/dvd.svg";
 
 export const HomeTemplate = () => {
@@ -11,28 +12,7 @@ export const HomeTemplate = () => {
     <Styled.Wrapper>
       <HeaderComponent />
       <Styled.Content>
-        <TestRedux />
-        {/* <MoviesNotFounded /> */}
-        {/* <Loading /> */}
-
-        {/* <MovieCard
-          image={{
-            alt: "BlackWidow - Viúva Negra em BlueRay",
-            src: MockedImg,
-          }}
-          price={9.99}
-          quantityAtCart={0}
-          title="Viúva Negra"
-        />
-        <MovieCard
-          image={{
-            alt: "BlackWidow - Viúva Negra em BlueRay",
-            src: MockedImg,
-          }}
-          price={9.99}
-          quantityAtCart={0}
-          title="Viúva Negra"
-        /> */}
+        <MoviesContainer />
       </Styled.Content>
     </Styled.Wrapper>
   );
