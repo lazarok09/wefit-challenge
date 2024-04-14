@@ -1,8 +1,8 @@
-
 import { CustomButton } from "@/components/CustomButton";
 import Image from "next/image";
-const PLUS_ICON = "/public/plus.svg";
-const HYPHEN_ICON = "/public/hyphen.svg";
+const PLUS_ICON = "/icons/plus.svg";
+const HYPHEN_ICON = "/icons/hyphen.svg";
+import * as Styled from "./styles";
 
 type AddContainerProps = {
   quantity: number;
@@ -15,7 +15,7 @@ export const AddContainer = ({
   handleDecrease,
 }: AddContainerProps) => {
   return (
-    <div>
+    <Styled.AddContainer>
       <CustomButton onClick={handleDecrease}>
         <Image alt="menos" src={HYPHEN_ICON} height={16} width={18} />
       </CustomButton>
@@ -23,6 +23,6 @@ export const AddContainer = ({
       <CustomButton onClick={handleAdd}>
         <Image alt="menos" src={PLUS_ICON} height={16} width={18} />
       </CustomButton>
-    </div>
+    </Styled.AddContainer>
   );
 };

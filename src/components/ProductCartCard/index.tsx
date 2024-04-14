@@ -4,7 +4,8 @@ import Image from "next/image";
 import * as Styled from "./styles";
 import { AddContainer } from "@/containers/Add";
 import { CustomButton } from "../CustomButton";
-const TRASH_ICON = "/public/trash.svg";
+const TRASH_ICON = "/icons/trash.svg";
+const DVD_ICON = "/icons/dvd.svg";
 
 type Props = {
   title: string;
@@ -12,40 +13,65 @@ type Props = {
   subTotal: number;
   productQuantity: number;
 };
+function formatPrice(price: number) {
+  return new Intl.NumberFormat("pt-BR", {
+    currency: "BRL",
+    style: "currency",
+  }).format(price);
+}
 
 export const ProductCartCard = (props: Props) => {
   const { title, price, subTotal, productQuantity } = props;
 
-  const formattedPrice = new Intl.NumberFormat("pt-BR", {
-    currency: "BRL",
-    style: "currency",
-  }).format(price);
+  const formattedPrice = formatPrice(price);
+  const subTotalFormatted = formatPrice(subTotal);
 
   const handleAdd = () => {};
   const handleDecrease = () => {};
 
   return (
     <Styled.Wrapper>
-      <Image alt="Homem aranha" src={""} />
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.Price>{formattedPrice}</Styled.Price>
+      <Styled.HeadContainer>
+        <Styled.ImageContainer>
+          <Image alt="Homem aranha" src={DVD_ICON} layout="fill" />
+        </Styled.ImageContainer>
 
-      <Image alt="icone de deletar" src={TRASH_ICON} height={16} width={18} />
+        <Styled.BodyContainer>
+          <Styled.Info>
+            <Styled.Title>{title}</Styled.Title>
+            <Styled.PriceContainer>
+              <Styled.Price>{formattedPrice}</Styled.Price>
+              <Image
+                alt="icone de deletar"
+                src={TRASH_ICON}
+                height={16}
+                width={18}
+              />
+            </Styled.PriceContainer>
+          </Styled.Info>
 
-      <AddContainer
-        handleAdd={handleAdd}
-        handleDecrease={handleDecrease}
-        quantity={productQuantity}
-      />
-
-      <Styled.Total>{subTotal}</Styled.Total>
-      <Styled.SubTotal>{subTotal}</Styled.SubTotal>
+          <Styled.AcionsContainer>
+            <AddContainer
+              handleAdd={handleAdd}
+              handleDecrease={handleDecrease}
+              quantity={productQuantity}
+            />
+            <Styled.SubTotalContainer>
+              <Styled.TotalLabel>Subtotal</Styled.TotalLabel>
+              <Styled.SubTotal>{subTotalFormatted}</Styled.SubTotal>
+            </Styled.SubTotalContainer>
+          </Styled.AcionsContainer>
+        </Styled.BodyContainer>
+      </Styled.HeadContainer>
 
       <Styled.Separator />
-
-      <Styled.TotalLabel>Total</Styled.TotalLabel>
-      <Styled.Total>{subTotal}</Styled.Total>
-      <CustomButton>Finalizar pedido</CustomButton>
+      <Styled.FooterContainer>
+        <Styled.TotalContainer>
+          <Styled.TotalLabel>Total</Styled.TotalLabel>
+          <Styled.Total>{subTotalFormatted}</Styled.Total>
+        </Styled.TotalContainer>
+        <CustomButton>Finalizar pedido</CustomButton>
+      </Styled.FooterContainer>
     </Styled.Wrapper>
   );
 };

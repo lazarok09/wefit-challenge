@@ -8,5 +8,6 @@ export const theme = {
     lightBlue: "#009EDD",
     lightBackground: "#FFFFFF",
     lightGray: "#999999",
+    borderLightGray: "#D9D9D9",
   },
 };
