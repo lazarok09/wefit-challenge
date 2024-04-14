@@ -2,8 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
 type MovieResponse = { products: Movie[] };
-export const counterApi = createApi({
-  reducerPath: "counterApi",
+export const moviesApi = createApi({
+  reducerPath: "moviesApi",
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.NEXT_PUBLIC_API_URL,
   }),
@@ -19,4 +19,4 @@ export const counterApi = createApi({
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetMoviesQuery } = counterApi;
+export const { useGetMoviesQuery } = moviesApi;
