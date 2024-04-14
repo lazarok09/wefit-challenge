@@ -1,6 +1,6 @@
 export const meta: Metadata = {
-  title: "wefit home",
-  description: "filmes para toda a família",
+  title: "WeFit | Home",
+  description: "Filmes para toda a família",
 };
 
 import { HomeTemplate } from "@/templates/Home";

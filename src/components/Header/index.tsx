@@ -1,5 +1,6 @@
 import Image from "next/image";
 import * as Styled from "./styles";
+import Link from "next/link";
 
 const SHOP_ICON = "/icons/shop.svg";
 
@@ -10,7 +11,9 @@ export const HeaderComponent = () => {
 
       <Styled.HeaderItems>
         <p>0 itens</p>
-        <Image src={SHOP_ICON} height={40} width={40} alt="icone de shop" />
+        <Link href="/carrinho">
+          <Image src={SHOP_ICON} height={40} width={40} alt="icone de shop" />
+        </Link>
       </Styled.HeaderItems>
     </Styled.HeaderWrapper>
   );
