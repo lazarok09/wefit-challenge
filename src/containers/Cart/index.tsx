@@ -6,10 +6,20 @@ import type { RootState } from "../../app/lib/store";
 import { useSelector } from "react-redux";
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 export const CartContainer = () => {
   const products = useSelector((state: RootState) => state.products.products);
   const router = useRouter();
+
+  const filteredProducts = useMemo(() => {
+    const uniqueProductsMap = new Map<number, Movie>();
+    products.forEach((item) => {
+      uniqueProductsMap.set(item.id, item);
+    });
+    return Array.from(uniqueProductsMap.values());
+  }, [products]);
+
   if (!products.length) {
     return (
       <MoviesNotFounded
@@ -19,15 +29,12 @@ export const CartContainer = () => {
     );
   }
 
-  return products.map((currentProduct, index) => {
+  return filteredProducts?.map((currentProduct, index) => {
     const productsAtCart = products.filter((p) => p.id === currentProduct.id);
     const productQuantity = productsAtCart?.length;
 
     const subTotal = productsAtCart.reduce((previousState, current) => {
-      if (Number.isSafeInteger(current)) {
-        return (previousState += current.price);
-      }
-      return previousState;
+      return (previousState += current.price);
     }, 0);
 
     return (
