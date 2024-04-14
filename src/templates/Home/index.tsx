@@ -1,10 +1,13 @@
 import { MovieCard } from "@/components/MovieCard";
 import * as Styled from "./styles";
 import { Loading } from "@/components/Loading";
+import { HeaderComponent } from "@/components/Header";
 const MockedImg = "/icons/dvd.svg";
 export const HomeTemplate = () => {
   return (
     <Styled.Wrapper>
+      <HeaderComponent />
+
       <MovieCard
         image={{
           alt: "BlackWidow - Viúva Negra em BlueRay",

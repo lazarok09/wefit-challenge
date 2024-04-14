@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 export const HeaderWrapper = styled.header`
   display: flex;
   padding: 24px 16px;
+  color: white;
   justify-content: space-between;
 `;
 
@@ -20,6 +21,7 @@ export const HeaderTitle = styled.div`
     }
   `}
 `;
+
 export const ShopIcon = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -33,6 +35,22 @@ export const ShopIcon = styled.div`
       font-size: 0.8rem;
       line-height: 16.34px;
       font-weight: 600;
+    }
+  `}
+`;
+
+export const HeaderItems = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    align-items: center;
+    padding: 9.71px;
+    & > p {
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 16.34px;
+      color: ${theme.colors.lightGray};
     }
   `}
 `;
