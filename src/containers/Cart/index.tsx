@@ -25,7 +25,7 @@ export const CartContainer = () => {
       <MoviesNotFounded
         onLabelClick={() => router.push("/")}
         label={"Voltar"}
-      />
+      /> 
     );
   }
 
