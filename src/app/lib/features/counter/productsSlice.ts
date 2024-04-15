@@ -27,10 +27,15 @@ export const productsSlice = createSlice({
         state.products.splice(index, 1);
       }
     },
+    removeAllFromCart: (state, action: PayloadAction<Movie>) => {
+      const { id } = action.payload;
+      state.products = state.products.filter((product) => product.id !== id);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToCart, removeFromCart } = productsSlice.actions;
+export const { addToCart, removeFromCart, removeAllFromCart } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;

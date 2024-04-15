@@ -1,8 +1,8 @@
-
-"use client"
+"use client";
 
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
 import { ProductCartCard } from "@/components/ProductCartCard";
+import { SuccessPurchase } from "@/components/SuccessPurchase";
 
 import { useCartContainer } from "@/hooks/cart";
 
@@ -13,8 +13,14 @@ export const CartContainer = () => {
     handleRemoveProcuct,
     products,
     onLabelClick,
+    handlePurchase,
+    step,
+    handleBackToCart,
   } = useCartContainer();
-
+  
+  if (step === "successPurchase") {
+    return <SuccessPurchase onLabelClick={handleBackToCart} label="Voltar" />;
+  }
   if (!products.length) {
     return <MoviesNotFounded onLabelClick={onLabelClick} label={"Voltar"} />;
   }
@@ -35,6 +41,7 @@ export const CartContainer = () => {
         key={index}
         handleAddProduct={() => handleAddProduct(currentProduct)}
         handleRemoveProcuct={() => handleRemoveProcuct(currentProduct)}
+        handlePurchase={() => handlePurchase(currentProduct)}
       />
     );
   });

@@ -8,6 +8,7 @@ const TRASH_ICON = "/icons/trash.svg";
 type Props = {
   subTotal: number;
   productQuantity: number;
+  handlePurchase: () => void;
   handleAddProduct: () => void;
   handleRemoveProcuct: () => void;
 } & Movie;
@@ -21,6 +22,7 @@ export const ProductCartCard = (props: Props) => {
     image,
     handleAddProduct,
     handleRemoveProcuct,
+    handlePurchase,
   } = props;
 
   const formattedPrice = formatPriceToBRL(price);
@@ -73,7 +75,7 @@ export const ProductCartCard = (props: Props) => {
           <Styled.TotalLabel>Total</Styled.TotalLabel>
           <Styled.Total>{subTotalFormatted}</Styled.Total>
         </Styled.TotalContainer>
-        <CustomButton>Finalizar pedido</CustomButton>
+        <CustomButton onClick={handlePurchase}>Finalizar pedido</CustomButton>
       </Styled.FooterContainer>
     </Styled.Wrapper>
   );
