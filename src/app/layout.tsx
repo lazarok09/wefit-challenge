@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "WeFit - Ecommerce",
   description:
     "Venha participar da melhor empresa da américa latina, com grandes clientes como Azul, somos referência na inovação e layouts maravilhosos.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
