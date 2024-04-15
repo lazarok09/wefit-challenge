@@ -83,5 +83,7 @@ export const CartInfo = styled.span`
     font-weight: 600;
     line-height: 16.34px;
     color: ${theme.colors.lightGray};
+    display: flex;
+    align-self: flex-end;
   `}
 `;
