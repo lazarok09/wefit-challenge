@@ -4,7 +4,15 @@
 
 Since time is the most valuable thing in my life, see how much time I have spent on this.
 
-![image](https://github.com/lazarok09/wefit-challenge/assets/45147892/d1079be8-e270-48fb-8301-e703f2aa541a)
+![| Technology          | Description                                 |
+|---------------------|---------------------------------------------|
+| Next.js             | React framework for server-side rendering   |
+| React               | JavaScript library for building UIs         |
+| Redux Toolkit       | State management library                    |
+| Redux Toolkit Query | Data fetching library                        |
+| TypeScript          | Typed superset of JavaScript                |
+| Styled Components   | CSS-in-JS library                           |
+](https://github.com/lazarok09/wefit-challenge/assets/45147892/d1079be8-e270-48fb-8301-e703f2aa541a)
 
 
 
