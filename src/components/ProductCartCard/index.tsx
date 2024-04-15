@@ -1,42 +1,37 @@
-"use client";
-
 import Image from "next/image";
 import * as Styled from "./styles";
 import { AddContainer } from "@/containers/Add";
 import { CustomButton } from "../CustomButton";
+import { formatPriceToBRL } from "@/helpers/format";
 const TRASH_ICON = "/icons/trash.svg";
-const DVD_ICON = "/icons/dvd.svg";
-
 
 type Props = {
-  title: string;
-  price: number;
   subTotal: number;
   productQuantity: number;
-};
-function formatPrice(price: number) {
-  return new Intl.NumberFormat("pt-BR", {
-    currency: "BRL",
-    style: "currency",
-  }).format(price);
-}
+  handleAddProduct: () => void;
+  handleRemoveProcuct: () => void;
+} & Movie;
 
 export const ProductCartCard = (props: Props) => {
-  const { title, price, subTotal, productQuantity } = props;
+  const {
+    title,
+    price,
+    subTotal,
+    productQuantity,
+    image,
+    handleAddProduct,
+    handleRemoveProcuct,
+  } = props;
 
-  const formattedPrice = formatPrice(price);
-  const subTotalFormatted = formatPrice(subTotal);
-
-
-  const handleAdd = () => {};
-  const handleDecrease = () => {};
+  const formattedPrice = formatPriceToBRL(price);
+  const subTotalFormatted = formatPriceToBRL(subTotal);
 
   return (
     <Styled.Wrapper>
       <Styled.HeadContainer>
         <Styled.ImageContainer>
           <Image
-            src={DVD_ICON}
+            src={image}
             alt="Homem aranha"
             layout="fill"
             className="custom-image"
@@ -60,8 +55,8 @@ export const ProductCartCard = (props: Props) => {
 
           <Styled.AcionsContainer>
             <AddContainer
-              handleAdd={handleAdd}
-              handleDecrease={handleDecrease}
+              handleAdd={handleAddProduct}
+              handleDecrease={handleRemoveProcuct}
               quantity={productQuantity}
             />
             <Styled.SubTotalContainer>

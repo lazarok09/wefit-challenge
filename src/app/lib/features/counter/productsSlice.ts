@@ -19,12 +19,13 @@ export const productsSlice = createSlice({
       // doesn't actually mutate the state because it uses the Immer library,
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
-      state.products.push(action.payload)
+      state.products.push(action.payload);
     },
     removeFromCart: (state, action: PayloadAction<Movie>) => {
-      state.products = state.products.filter(
-        (product) => product.id !== action.payload.id
-      );
+      const index = state.products.findIndex((p) => p.id === action.payload.id);
+      if (index !== -1) {
+        state.products.splice(index, 1);
+      }
     },
   },
 });

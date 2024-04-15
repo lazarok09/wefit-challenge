@@ -1,32 +1,22 @@
-"use client";
 
-import { ProductCartCard } from "@/components/ProductCartCard";
-import type { RootState } from "../../app/lib/store";
+"use client"
 
-import { useSelector } from "react-redux";
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
-import { useRouter } from "next/navigation";
-import { useMemo } from "react";
+import { ProductCartCard } from "@/components/ProductCartCard";
+
+import { useCartContainer } from "@/hooks/cart";
 
 export const CartContainer = () => {
-  const products = useSelector((state: RootState) => state.products.products);
-  const router = useRouter();
-
-  const filteredProducts = useMemo(() => {
-    const uniqueProductsMap = new Map<number, Movie>();
-    products.forEach((item) => {
-      uniqueProductsMap.set(item.id, item);
-    });
-    return Array.from(uniqueProductsMap.values());
-  }, [products]);
+  const {
+    filteredProducts,
+    handleAddProduct,
+    handleRemoveProcuct,
+    products,
+    onLabelClick,
+  } = useCartContainer();
 
   if (!products.length) {
-    return (
-      <MoviesNotFounded
-        onLabelClick={() => router.push("/")}
-        label={"Voltar"}
-      /> 
-    );
+    return <MoviesNotFounded onLabelClick={onLabelClick} label={"Voltar"} />;
   }
 
   return filteredProducts?.map((currentProduct, index) => {
@@ -39,11 +29,12 @@ export const CartContainer = () => {
 
     return (
       <ProductCartCard
-        price={currentProduct.price}
+        {...currentProduct}
         productQuantity={productQuantity}
         subTotal={subTotal}
         key={index}
-        title={`${currentProduct.title} - Assista ${currentProduct.title} em BlueRay`}
+        handleAddProduct={() => handleAddProduct(currentProduct)}
+        handleRemoveProcuct={() => handleRemoveProcuct(currentProduct)}
       />
     );
   });

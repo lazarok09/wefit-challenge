@@ -17,11 +17,11 @@ export const AddContainer = ({
   return (
     <Styled.AddContainer>
       <CustomButton onClick={handleDecrease}>
-        <Image alt="menos" src={HYPHEN_ICON} height={16} width={18} />
+        <Image alt="símbolo menos" src={HYPHEN_ICON} height={16} width={18} />
       </CustomButton>
       <span>{quantity}</span>
       <CustomButton onClick={handleAdd}>
-        <Image alt="menos" src={PLUS_ICON} height={16} width={18} />
+        <Image alt="símbolo mais" src={PLUS_ICON} height={16} width={18} />
       </CustomButton>
     </Styled.AddContainer>
   );
