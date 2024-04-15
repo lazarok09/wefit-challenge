@@ -10,16 +10,14 @@ type Props = {
 export const MoviesNotFounded = ({ label, onLabelClick }: Props) => {
   return (
     <Styled.Wrapper>
-      <Styled.Content>
-        <Styled.Title>Parece que não há nada por aqui {":("}</Styled.Title>
-        <Image
-          height={264}
-          width={178.63}
-          src={ERROR_LADY}
-          alt="erro: não encontrado"
-        />
-        <CustomButton onClick={onLabelClick}>{label}</CustomButton>
-      </Styled.Content>
+      Parece que não há nada por aqui {":("}
+      <Image
+        height={264}
+        width={178.63}
+        src={ERROR_LADY}
+        alt="erro: não encontrado"
+      />
+      <CustomButton onClick={onLabelClick}>{label}</CustomButton>
     </Styled.Wrapper>
   );
 };

@@ -10,9 +10,5 @@ export const Wrapper = styled.main`
 export const Content = styled.section`
   ${() => css`
     padding: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 16px;
   `}
 `;

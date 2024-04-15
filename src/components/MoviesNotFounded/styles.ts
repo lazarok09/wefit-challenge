@@ -8,27 +8,23 @@ export const Wrapper = styled.div`
     background: ${theme.colors.lightBackground};
     padding: 64px;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 27.24px;
+    align-items: center;
+    text-align: center;
+    color: ${theme.colors.darkText};
 
     ${CustomButton} {
       line-height: 16.34px;
       font-weight: 700;
       border-radius: 4px;
       padding: 11px 8px;
+      border-radius: 8px;
+      max-width: 173px;
     }
-  `}
-`;
-export const Content = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  `}
-`;
-export const Title = styled.div`
-  ${({ theme }) => css`
-    font-weight: 700;
-    font-size: 1.6rem;
-    line-height: 27.24px;
-    text-align: center;
   `}
 `;

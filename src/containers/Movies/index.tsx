@@ -4,11 +4,11 @@ import { useGetMoviesQuery } from "@/app/lib/features/counter/moviesApi";
 import { Loading } from "@/components/Loading";
 import { MovieCard } from "@/components/MovieCard";
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
-import { Fragment } from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../../app/lib/store";
 import { useAppDispatch } from "@/app/lib/hooks";
 import { addToCart } from "@/app/lib/features/counter/productsSlice";
+import * as Styled from "./styles";
 
 export const MoviesContainer = () => {
   const { error, isLoading, data, refetch } = useGetMoviesQuery();
@@ -21,7 +21,7 @@ export const MoviesContainer = () => {
   if (isLoading) {
     return <Loading />;
   }
-  if (error) {
+  if (error || !data?.length) {
     return (
       <MoviesNotFounded
         onLabelClick={() => refetch()}
@@ -30,7 +30,8 @@ export const MoviesContainer = () => {
     );
   }
   return (
-    <Fragment>
+    <Styled.Wrapper>
+      
       {data?.map((movie, index) => {
         const quantityAtCart = productsAtCart.filter(
           (product) => product.id === movie.id
@@ -57,6 +58,6 @@ export const MoviesContainer = () => {
           />
         );
       })}
-    </Fragment>
+    </Styled.Wrapper>
   );
 };

@@ -4,7 +4,7 @@ import { CustomButton } from "../CustomButton/styles";
 type Props = {
   isActionButtonGreen: boolean;
 };
-export const Wrapper = styled.div<Props>`
+export const Wrapper = styled.article<Props>`
   ${({ theme, isActionButtonGreen }) => css`
     display: flex;
     flex-direction: column;
@@ -27,7 +27,7 @@ export const Wrapper = styled.div<Props>`
       background: ${isActionButtonGreen
         ? theme.colors.greenBackground
         : theme.colors.lightBlue};
-        
+
       > span {
         height: 100%;
         display: flex;

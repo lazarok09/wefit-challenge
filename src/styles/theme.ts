@@ -11,4 +11,7 @@ export const theme = {
     lightGray: "#999999",
     borderLightGray: "#D9D9D9",
   },
+  media: {
+    desktop: "(min-width: 1080px)",
+  },
 };

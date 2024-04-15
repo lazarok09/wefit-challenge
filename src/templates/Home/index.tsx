@@ -5,8 +5,8 @@ import { MoviesContainer } from "@/containers/Movies";
 export const HomeTemplate = () => {
   return (
     <Styled.Wrapper>
-      <HeaderComponent />
       <Styled.Content>
+      <HeaderComponent />
         <MoviesContainer />
       </Styled.Content>
     </Styled.Wrapper>
