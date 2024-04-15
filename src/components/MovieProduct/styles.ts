@@ -24,6 +24,7 @@ export const BodyContainer = styled.div`
     display: flex;
     gap: 22px;
     flex-direction: column;
+    width: 100%;
   `}
 `;
 export const FooterContainer = styled.div`
@@ -39,7 +40,13 @@ export const FooterContainer = styled.div`
     }
   `}
 `;
-
+export const Info = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  `}
+`;
 export const ImageContainer = styled.div`
   ${({ theme }) => css`
     position: relative;
@@ -55,13 +62,7 @@ export const ImageContainer = styled.div`
     }
   `}
 `;
-export const Info = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-  `}
-`;
+
 
 export const Title = styled.h3`
   ${({ theme }) => css`

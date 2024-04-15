@@ -8,6 +8,12 @@ const nextConfig = {
       },
     ],
   },
+  compiler: {
+    styledComponents: {
+      displayName: true,
+      fileName: true,
+    },
+  },
 };
 
 export default nextConfig;

@@ -13,7 +13,7 @@ type Props = {
   handleRemoveProcuct: () => void;
 } & Movie;
 
-export const ProductCartCard = (props: Props) => {
+export const MovieProduct = (props: Props) => {
   const {
     title,
     price,
@@ -38,6 +38,8 @@ export const ProductCartCard = (props: Props) => {
             layout="fill"
             className="custom-image"
             fill
+            priority={true}
+            
           />
         </Styled.ImageContainer>
 

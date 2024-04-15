@@ -1,7 +1,7 @@
 "use client";
 
 import { MoviesNotFounded } from "@/components/MoviesNotFounded";
-import { ProductCartCard } from "@/components/ProductCartCard";
+import { MovieProduct } from "@/components/MovieProduct";
 import { SuccessPurchase } from "@/components/SuccessPurchase";
 
 import { useCartContainer } from "@/hooks/cart";
@@ -17,7 +17,7 @@ export const CartContainer = () => {
     step,
     handleBackToCart,
   } = useCartContainer();
-  
+
   if (step === "successPurchase") {
     return <SuccessPurchase onLabelClick={handleBackToCart} label="Voltar" />;
   }
@@ -34,7 +34,7 @@ export const CartContainer = () => {
     }, 0);
 
     return (
-      <ProductCartCard
+      <MovieProduct
         {...currentProduct}
         productQuantity={productQuantity}
         subTotal={subTotal}
