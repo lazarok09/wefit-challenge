@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../app/lib/store";
 import { useAppDispatch } from "@/app/lib/hooks";
 import { addToCart } from "@/app/lib/features/counter/productsSlice";
-import * as Styled from "./styles";
+import { Fragment } from "react";
 
 export const MoviesContainer = () => {
   const { error, isLoading, data, refetch } = useGetMoviesQuery();
@@ -30,8 +30,7 @@ export const MoviesContainer = () => {
     );
   }
   return (
-    <Styled.Wrapper>
-      
+    <Fragment>
       {data?.map((movie, index) => {
         const quantityAtCart = productsAtCart.filter(
           (product) => product.id === movie.id
@@ -58,6 +57,6 @@ export const MoviesContainer = () => {
           />
         );
       })}
-    </Styled.Wrapper>
+    </Fragment>
   );
 };

@@ -8,7 +8,20 @@ export const Wrapper = styled.main`
   `}
 `;
 export const Content = styled.section`
-  ${() => css`
+  ${({ theme }) => css`
     padding: 16px;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    
+    @media ${theme.media.desktop} {
+      display: flex;
+      gap: 16px;
+      align-items: normal;
+    }
   `}
 `;

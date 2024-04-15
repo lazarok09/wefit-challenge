@@ -16,7 +16,8 @@ export const Wrapper = styled.article<Props>`
     max-width: 338.67px;
     height: auto;
     max-height: 324px;
-
+    border-radius: 4px;
+    
     background: ${theme.colors.lightBackground};
 
     ${CustomButton} {
