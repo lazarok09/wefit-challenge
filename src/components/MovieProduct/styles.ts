@@ -11,6 +11,11 @@ export const Wrapper = styled.div`
     flex-direction: column;
     border-radius: 4px;
     gap: 21px;
+    width: 100%;
+    @media ${theme.media.desktop} {
+      gap: 24px;
+      padding: 24px;
+    }
   `}
 `;
 export const HeadContainer = styled.div`
@@ -19,6 +24,15 @@ export const HeadContainer = styled.div`
     gap: 16px;
   `}
 `;
+export const AddForDesktop = styled.div`
+  ${({ theme }) => css`
+    display: none;
+    @media ${theme.media.desktop} {
+      display: flex;
+    }
+  `}
+`;
+
 export const BodyContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
@@ -27,23 +41,15 @@ export const BodyContainer = styled.div`
     width: 100%;
   `}
 `;
-export const FooterContainer = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    gap: 16px;
-    flex-direction: column;
-    ${CustomButton} {
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      padding: 11px 0px;
-    }
-  `}
-`;
+
 export const Info = styled.div`
   ${({ theme }) => css`
     display: flex;
     justify-content: space-between;
+    @media ${theme.media.desktop} {
+      display: grid;
+      grid-template-columns: 174px 3.292fr 372px;
+    }
     width: 100%;
   `}
 `;
@@ -63,13 +69,39 @@ export const ImageContainer = styled.div`
   `}
 `;
 
-
-export const Title = styled.h3`
+export const TitleForMobile = styled.h3`
   ${({ theme }) => css`
     font-size: 0.9rem;
     line-height: 19.07px;
     font-weight: 700;
     color: ${theme.colors.darkText};
+
+    @media ${theme.media.desktop} {
+      display: none;
+    }
+  `}
+`;
+export const TitleForDesktop = styled.h3`
+  ${({ theme }) => css`
+    display: none;
+    @media ${theme.media.desktop} {
+      display: flex;
+
+      font-size: 0.9rem;
+      line-height: 19.07px;
+      font-weight: 700;
+      color: ${theme.colors.darkText};
+    }
+  `}
+`;
+export const TitleContainerForDesktop = styled.div`
+  ${({ theme }) => css`
+    display: none;
+    @media ${theme.media.desktop} {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
   `}
 `;
 export const PriceContainer = styled.div`
@@ -78,6 +110,25 @@ export const PriceContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 16px;
+    @media ${theme.media.desktop} {
+      justify-content: space-between;
+    }
+    & > img {
+      cursor: pointer;
+    }
+  `}
+`;
+export const HeaderAreasForDesktop = styled.p`
+  ${({ theme }) => css`
+    display: none;
+    @media ${theme.media.desktop} {
+      display: grid;
+      grid-template-columns: 2.2fr 3.292fr 372px;
+      color: ${theme.colors.lightGray};
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19.07px;
+    }
   `}
 `;
 
@@ -87,11 +138,14 @@ export const Price = styled.p`
     font-weight: 700;
   `}
 `;
-export const AcionsContainer = styled.div`
+export const AcionsContainerForMobile = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: row;
     gap: 16px;
+    @media ${theme.media.desktop} {
+      display: none;
+    }
   `}
 `;
 
@@ -126,13 +180,37 @@ export const SubTotalLabel = styled.span`
     color: ${theme.colors.lightGray};
   `}
 `;
+export const FooterContainer = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    ${CustomButton} {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      padding: 11px 0px;
+    }
+    @media ${theme.media.desktop} {
+      flex-direction: row-reverse;
+
+      justify-content: space-between;
+      align-items: center;
+      justify-items: center;
+
+      ${CustomButton} {
+        max-width: 173px;
+      }
+    }
+  `}
+`;
 export const TotalLabel = styled.span`
   ${({ theme }) => css`
     line-height: 19.07px;
 
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 0.9rem;
     color: ${theme.colors.lightGray};
   `}
 `;
@@ -142,6 +220,18 @@ export const TotalContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media ${theme.media.desktop} {
+      gap: 14px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ${Total} {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
   `}
 `;
 

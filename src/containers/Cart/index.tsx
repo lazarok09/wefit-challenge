@@ -16,6 +16,7 @@ export const CartContainer = () => {
     handlePurchase,
     step,
     handleBackToCart,
+    handleRemoveAllProduct,
   } = useCartContainer();
 
   if (step === "successPurchase") {
@@ -42,6 +43,7 @@ export const CartContainer = () => {
         handleAddProduct={() => handleAddProduct(currentProduct)}
         handleRemoveProcuct={() => handleRemoveProcuct(currentProduct)}
         handlePurchase={() => handlePurchase(currentProduct)}
+        handleRemoveAllProcuct={() => handleRemoveAllProduct(currentProduct)}
       />
     );
   });

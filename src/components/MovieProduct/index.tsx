@@ -11,6 +11,7 @@ type Props = {
   handlePurchase: () => void;
   handleAddProduct: () => void;
   handleRemoveProcuct: () => void;
+  handleRemoveAllProcuct: () => void;
 } & Movie;
 
 export const MovieProduct = (props: Props) => {
@@ -23,6 +24,7 @@ export const MovieProduct = (props: Props) => {
     handleAddProduct,
     handleRemoveProcuct,
     handlePurchase,
+    handleRemoveAllProcuct,
   } = props;
 
   const formattedPrice = formatPriceToBRL(price);
@@ -30,6 +32,12 @@ export const MovieProduct = (props: Props) => {
 
   return (
     <Styled.Wrapper>
+      <Styled.HeaderAreasForDesktop>
+        <h4>PRODUTO</h4>
+        <h4>QTD</h4>
+        <h4>SUBTOTAL</h4>
+      </Styled.HeaderAreasForDesktop>
+
       <Styled.HeadContainer>
         <Styled.ImageContainer>
           <Image
@@ -39,25 +47,37 @@ export const MovieProduct = (props: Props) => {
             className="custom-image"
             fill
             priority={true}
-            
           />
         </Styled.ImageContainer>
 
         <Styled.BodyContainer>
           <Styled.Info>
-            <Styled.Title>{title}</Styled.Title>
+            <Styled.TitleForMobile>{title}</Styled.TitleForMobile>
+            <Styled.TitleContainerForDesktop>
+              <Styled.TitleForDesktop>{title}</Styled.TitleForDesktop>
+              <Styled.Price>{formattedPrice}</Styled.Price>
+            </Styled.TitleContainerForDesktop>
+            <Styled.AddForDesktop>
+              <AddContainer
+                handleAdd={handleAddProduct}
+                handleDecrease={handleRemoveProcuct}
+                quantity={productQuantity}
+              />
+            </Styled.AddForDesktop>
             <Styled.PriceContainer>
               <Styled.Price>{formattedPrice}</Styled.Price>
               <Image
                 alt="icone de deletar"
+                title={`Remover filme ${title}`}
                 src={TRASH_ICON}
                 height={16}
                 width={18}
+                onClick={handleRemoveAllProcuct}
               />
             </Styled.PriceContainer>
           </Styled.Info>
 
-          <Styled.AcionsContainer>
+          <Styled.AcionsContainerForMobile>
             <AddContainer
               handleAdd={handleAddProduct}
               handleDecrease={handleRemoveProcuct}
@@ -67,7 +87,7 @@ export const MovieProduct = (props: Props) => {
               <Styled.SubTotalLabel>Subtotal</Styled.SubTotalLabel>
               <Styled.SubTotal>{subTotalFormatted}</Styled.SubTotal>
             </Styled.SubTotalContainer>
-          </Styled.AcionsContainer>
+          </Styled.AcionsContainerForMobile>
         </Styled.BodyContainer>
       </Styled.HeadContainer>
 

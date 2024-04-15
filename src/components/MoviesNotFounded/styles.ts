@@ -22,9 +22,6 @@ export const Wrapper = styled.div`
     ${CustomButton} {
       line-height: 16.34px;
       font-weight: 700;
-      border-radius: 4px;
-      padding: 11px 8px;
-      border-radius: 8px;
       max-width: 173px;
     }
 

@@ -38,7 +38,9 @@ export const useCartContainer = () => {
   const onLabelClick = () => {
     router.push("/");
   };
-
+  const handleRemoveAllProduct = (product: Movie) => {
+    dispatch(removeAllFromCart(product));
+  };
   const handlePurchase = (product: Movie) => {
     setStep("successPurchase");
     dispatch(removeAllFromCart(product));
@@ -56,5 +58,6 @@ export const useCartContainer = () => {
     step,
     handlePurchase,
     handleBackToCart,
+    handleRemoveAllProduct,
   };
 };

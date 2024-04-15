@@ -16,11 +16,14 @@ export const AddContainer = ({
 }: AddContainerProps) => {
   return (
     <Styled.AddContainer>
-      <CustomButton onClick={handleDecrease}>
+      <CustomButton
+        title={`${quantity > 1 ? "Remover um" : "Remover"}  `}
+        onClick={handleDecrease}
+      >
         <Image alt="símbolo menos" src={HYPHEN_ICON} height={16} width={18} />
       </CustomButton>
       <span>{quantity}</span>
-      <CustomButton onClick={handleAdd}>
+      <CustomButton title={"Adicionar um"} onClick={handleAdd}>
         <Image alt="símbolo mais" src={PLUS_ICON} height={16} width={18} />
       </CustomButton>
     </Styled.AddContainer>

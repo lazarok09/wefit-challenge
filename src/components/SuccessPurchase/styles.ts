@@ -20,7 +20,6 @@ export const Wrapper = styled.div`
       font-size: 0.8rem;
       line-height: 16.34px;
       font-weight: 700;
-      border-radius: 8px;
       max-width: 173px;
     }
   `}
