@@ -29,8 +29,8 @@ export const MovieCard = (props: Props) => {
   return (
     <Styled.Wrapper isActionButtonGreen={isActionButtonGreen}>
       <Image
-        height={147}
-        width={188}
+        height={188}
+        width={147}
         src={image}
         alt={`${title} - Assista ${title} em BlueRay`}
       />
