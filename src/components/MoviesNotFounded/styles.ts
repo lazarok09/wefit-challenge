@@ -17,7 +17,8 @@ export const Wrapper = styled.div`
     align-items: center;
     text-align: center;
     color: ${theme.colors.darkText};
-
+    width: 100%;
+    
     ${CustomButton} {
       line-height: 16.34px;
       font-weight: 700;
@@ -25,6 +26,10 @@ export const Wrapper = styled.div`
       padding: 11px 8px;
       border-radius: 8px;
       max-width: 173px;
+    }
+
+    @media ${theme.media.desktop} {
+      max-width: unset;
     }
   `}
 `;

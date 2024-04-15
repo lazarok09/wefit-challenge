@@ -10,17 +10,18 @@ export const Wrapper = styled.main`
 export const Content = styled.section`
   ${({ theme }) => css`
     padding: 16px;
-    max-width: 1440px;
+    max-width: 1080px;
     margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
     align-items: center;
-    
+
     @media ${theme.media.desktop} {
       display: flex;
-      gap: 16px;
+      column-gap: 16px;
+      row-gap: 24px;
       align-items: normal;
     }
   `}

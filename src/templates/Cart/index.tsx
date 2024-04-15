@@ -5,8 +5,8 @@ import { CartContainer } from "@/containers/Cart";
 export const CartTemplate = () => {
   return (
     <Styled.Wrapper>
-      <Styled.Content>
       <HeaderComponent />
+      <Styled.Content>
         <CartContainer />
       </Styled.Content>
     </Styled.Wrapper>

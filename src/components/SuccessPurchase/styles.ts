@@ -10,7 +10,8 @@ export const Wrapper = styled.div`
     gap: 24px;
     color: ${theme.colors.darkText};
     text-align: center;
-    align-items: center;
+    align-items: center;  
+    width: 100%;
 
     background: ${theme.colors.lightBackground};
     ${CustomButton} {

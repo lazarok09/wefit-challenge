@@ -8,11 +8,21 @@ export const Wrapper = styled.main`
   `}
 `;
 export const Content = styled.section`
-  ${() => css`
+  ${({ theme }) => css`
     padding: 16px;
+    max-width: 1080px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 16px;
+    align-items: center;
+
+    @media ${theme.media.desktop} {
+      display: flex;
+      column-gap: 16px;
+      row-gap: 24px;
+      align-items: normal;
+    }
   `}
 `;

@@ -13,7 +13,7 @@ export const Content = styled.nav`
 
   width: 100%;
   padding: 24px 16px;
-  max-width: 1440px;
+  max-width: 1080px;
   margin: 0 auto;
   color: white;
   justify-content: space-between;
